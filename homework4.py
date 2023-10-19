@@ -1,9 +1,15 @@
 class CountVectorizer:
+    """
+    Позволяет получить терм-документную матрицу
+    """
     def __init__(self):
         self.vocab = {}
         self.feature_names = []
 
     def fit_transform(self, text):
+        """
+        Берет текст из исходного списка и возвращает терм-документную матрицу
+        """
         if not isinstance(text, list) or not all(
             isinstance(sentence, str) for sentence in text
         ):
@@ -28,6 +34,9 @@ class CountVectorizer:
         return matrix
 
     def get_feature_names(self):
+        """
+        Возвращает список слов из исходного текста
+        """
         return self.feature_names
 
 
