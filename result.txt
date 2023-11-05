@@ -1,0 +1,129 @@
+
+Файл с командами и результатами запуска
+
+
+*** ISSUE-01 ***
+
+(venv) veronika@MacBook-Air-Veronika omd %  python -m doctest -v issue_01.py
+Trying:
+    encode('SOS')
+Expecting:
+    '... --- ...'
+ok
+Trying:
+    encode(22222222222222)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Входной текст должен быть строкой
+ok
+Trying:
+    encode(('yes', 'no'))
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Входной текст должен быть строкой
+ok
+1 items had no tests:
+    issue_01
+1 items passed all tests:
+   3 tests in issue_01.encode
+3 tests in 2 items.
+3 passed and 0 failed.
+Test passed.
+
+
+
+
+
+*** ISSUE-02 ***
+
+(venv) veronika@MacBook-Air-Veronika omd % python -m pytest -v issue_02.py
+=========================================================== test session starts ===========================================================
+platform darwin -- Python 3.11.5, pytest-7.4.3, pluggy-1.3.0 -- /Users/Python/aaa_HWs/HW5/omd/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/Python/aaa_HWs/HW5/omd
+collected 3 items
+
+issue_02.py::test_morse_decode[... --- ...-SOS] PASSED                                                                              [ 33%]
+issue_02.py::test_morse_decode[.. .-.. --- ...- . .--. -.-- - .... --- -.-ILOVEPYTHON] PASSED                                       [ 66%]
+issue_02.py::test_morse_decode[.---- ..--- ...---123] PASSED                                                                        [100%]
+
+============================================================ 3 passed in 0.01s ============================================================
+
+
+
+
+
+*** ISSUE-03 ***
+
+(venv) veronika@MacBook-Air-Veronika omd % python -m unittest -v issue_03.py
+test_empty_input (issue_03.TestFitTransform.test_empty_input) ... ok
+test_invalid_input (issue_03.TestFitTransform.test_invalid_input) ... ok
+test_type_output (issue_03.TestFitTransform.test_type_output) ... ok
+test_valid_output (issue_03.TestFitTransform.test_valid_output) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
+
+
+
+
+
+*** ISSUE-04 ***
+
+(venv) veronika@MacBook-Air-Veronika omd % python -m pytest -v issue_04.py
+=========================================================== test session starts ===========================================================
+platform darwin -- Python 3.11.5, pytest-7.4.3, pluggy-1.3.0 -- /Users/Python/aaa_HWs/HW5/omd/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/Python/aaa_HWs/HW5/omd
+plugins: cov-4.1.0
+collected 4 items
+
+issue_04.py::test_empty_input PASSED                                                                                                [ 25%]
+issue_04.py::test_int_in_input PASSED                                                                                               [ 50%]
+issue_04.py::test_city_names_list PASSED                                                                                            [ 75%]
+issue_04.py::test_animals_str PASSED                                                                                                [100%]
+
+============================================================ 4 passed in 0.01s ============================================================
+
+
+
+*** ISSUE-05 ***
+
+(venv) veronika@MacBook-Air-Veronika omd % python -m pytest -v -s issue_05.py
+=========================================================== test session starts ===========================================================
+platform darwin -- Python 3.11.5, pytest-7.4.3, pluggy-1.3.0 -- /Users/Python/aaa_HWs/HW5/omd/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/Python/aaa_HWs/HW5/omd
+plugins: cov-4.1.0
+collected 4 items
+
+issue_05.py::test_year_extraction PASSED
+issue_05.py::test_year_format PASSED
+issue_05.py::test_year_ymd_format PASSED
+issue_05.py::test_year_dmy_format PASSED
+
+============================================================ 4 passed in 2.68s ============================================================
+
+(venv) veronika@MacBook-Air-Veronika omd % python -m pytest -q issue_05.py --cov=issue_05
+....                                                                                                                                [100%]
+
+---------- coverage: platform darwin, python 3.11.5-final-0 ----------
+Name          Stmts   Miss  Cover
+---------------------------------
+issue_05.py      23      0   100%
+---------------------------------
+TOTAL            23      0   100%
+
+4 passed in 1.15s
+
+(venv) veronika@MacBook-Air-Veronika omd % python -m pytest -q issue_05.py --cov=issue_05 --cov-report html
+....                                                                                                                                [100%]
+
+---------- coverage: platform darwin, python 3.11.5-final-0 ----------
+Coverage HTML written to dir htmlcov
+
+4 passed in 1.09s
